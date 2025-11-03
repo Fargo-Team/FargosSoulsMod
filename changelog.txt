@@ -1,6 +1,2 @@
 NEW UPDATE - V {ModVersion}
-- Fixed Wall of Flesh ichor issue
-- Fixed Cursed Coffin half block offset
-- Tweaked Cursed Coffin movement to overshoot less
-- Added Cursed Coffin arena mod calls (Remnants will use this)
-- Cursed Coffin sandfall checks for any solid tile (Remnants will use this)
+- Fixed edge case in movement formula that caused Cursed Coffin to sometimes not move

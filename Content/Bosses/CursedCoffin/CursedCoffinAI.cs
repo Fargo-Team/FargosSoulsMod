@@ -97,6 +97,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
             else
                 Main.NewText(states);
             */
+            
             //Defaults
             NPC.defense = NPC.defDefense;
             if (Main.npc.Any(p => p.TypeAlive<CursedSpirit>()))
@@ -206,7 +207,10 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
 
 			// Ensure that there is a valid state timer to get.
 			if (StateMachine.StateStack.Count > 0)
-				Timer++;
+            {
+                Timer++;
+            }
+				
 		}
 		#endregion
 
@@ -489,7 +493,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
 			Vector2 maskCenter = MaskCenter();
 
             Vector2 desiredPos = CoffinArena.FightCenter;
-            Movement(desiredPos, 0.1f, 14, 5, 0.08f, 20);
+            Movement(desiredPos, 0.5f, 14, 5, 0.08f, 20);
 			float dist = NPC.Distance(desiredPos);
 			if (dist > 50)
 				Timer = -1;

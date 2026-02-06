@@ -49,5 +49,4 @@ namespace FargowiltasSouls.Common
         internal static string MasochistIconPath => "FargowiltasSouls/Assets/UI/OncomingMutantWithAura";
         
     }
-    
 }

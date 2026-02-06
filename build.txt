@@ -1,5 +1,5 @@
 author = Fargowilta, Terry N. Muse and Javyz
-version = 1.7.3.5
+version = 1.7.3.6
 displayName = Fargo's Souls Mod
 homepage = https://discord.gg/Rgen4Vv
 buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, .git\*, Folders to Port\*, Fargowiltas.dll, Luminance.dll

@@ -1,2 +1,3 @@
 NEW UPDATE - V {ModVersion}
 - Reenabled Eternity world icons
+- Added new Plantera crystal projectile visuals (ported from 2.0) to address lag issues on certain platforms

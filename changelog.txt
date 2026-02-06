@@ -1,2 +1,2 @@
 NEW UPDATE - V {ModVersion}
-- Fixed edge case in movement formula that caused Cursed Coffin to sometimes not move
+- Reenabled Eternity world icons

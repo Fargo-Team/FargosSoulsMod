@@ -1,4 +1,4 @@
-SoulTogglerButton: Открыть переключатель эффектов
+﻿SoulTogglerButton: Открыть переключатель эффектов
 Standard: Обычный режим
 Eternity: Режим Вечность
 Masochist: Режим Мазохиста
@@ -76,14 +76,14 @@ ActiveSkills: Активные умения
 AvailableSkills: Доступные умения
 SelectDifficulty: Выбрать сложность
 NoRespawn: "{0}: Вы можете возродиться только один раз за битву!"
-/* NoDLC:
+NoDLC:
 	'''
-	WARNING: You are playing Fargo's Souls Mod with the Calamity Mod without the compatibility mod!
-	We highly recommend you to install the "Calamity - Fargo's Souls DLC" mod for compatibility between these mods before proceeding!
-	The DLC mod also adds new content and optional Eternity reworks for Calamity bosses!
-	''' */
-/* NoMusic:
+	ВНИМАНИЕ: Вы играете в мод «Fargo's Souls» вместе с модом «Calamity», но без мода для совместимости!
+	Мы строго рекомендуем вам установить мод «Calamity - Fargo's Souls DLC» для совместимости обоих модов!
+	Мод-DLC также добавляет новый контент и необязательные переработки режима Вечность для боссов Calamity!
 	'''
-	WARNING: Fargo's Music Mod not found!
-	Please install Fargo's Music Mod for the full experience!
-	''' */
+NoMusic:
+	'''
+	ВНИМАНИЕ: Не найден мод «Fargo's Music»!
+	Пожалуйста, установите мод «Fargo's Music» для полноценного опыта!
+	'''

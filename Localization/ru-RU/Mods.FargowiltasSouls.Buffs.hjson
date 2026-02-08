@@ -1,4 +1,4 @@
-TrojanSquirrelMountBuff: {
+﻿TrojanSquirrelMountBuff: {
 	DisplayName: Троянская белка
 	Description: Вы катаетесь верхом на меха-белке
 }
@@ -140,7 +140,7 @@ DeviPresenceBuff: {
 
 GrabbedBuff: {
 	DisplayName: В захвате
-	Description: Долбите по кнопкам передвижения, чтобы выбраться!
+	Description: Долбите по клавишам передвижения, чтобы выбраться!
 }
 
 MutantFangBuff: {
@@ -820,5 +820,5 @@ TouhouHoardBuff: {
 
 GrabbedHarmlessBuff: {
 	DisplayName: В захвате
-	Description: Долбите по кнопкам передвижения, чтобы выбраться!
+	Description: Долбите по клавишам передвижения, чтобы выбраться!
 }

@@ -48,8 +48,8 @@ ApprenticeEnchant: {
 	DisplayName: Apprentice Enchantment
 	Tooltip:
 		'''
-		While attacking, fire your next closest weapon's projectile as support
-		The support weapon will fire 1/7 as often as they would normally
+		While attacking, fire projectiles from the weapon in your next inventory slot as support
+		The support weapon will fire 1/7 as often as it would normally
 		Only works on hotbar weapons
 		Consumables are consumed, mana is spent, and ammo is selected
 		'A long way to perfection'
@@ -893,7 +893,7 @@ ShadowForce: {
 		[i:FargowiltasSouls/NinjaEnchant] Increases projectile crit based on projectile speed
 		[i:FargowiltasSouls/NinjaEnchant] Increases projectile speed and knockback while moving slowly
 		[i:FargowiltasSouls/NecroEnchant] Slain enemies may drop a pile of bones
-		[i:FargowiltasSouls/DarkArtistEnchant] While attacking, fire your next closest weapon's projectiles as support
+		[i:FargowiltasSouls/DarkArtistEnchant] While attacking, fire projectiles from the weapon in your next inventory slot as support
 		[i:FargowiltasSouls/SpookyEnchant] All of your minions gain an extra scythe attack
 		'Dark, Darker, Yet Darker'
 		'''

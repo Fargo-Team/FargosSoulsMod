@@ -34,6 +34,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Default;
 using Terraria.ModLoader.IO;
+using Terraria.UI;
 using static FargowiltasSouls.Core.Systems.DashManager;
 
 namespace FargowiltasSouls.Core.ModPlayers
@@ -182,39 +183,17 @@ namespace FargowiltasSouls.Core.ModPlayers
             disabledToggles.Clear();
             CooldownBarManager.Instance.RemoveAllChildren();
 
-            if (!ModLoader.TryGetMod("FargowiltasMusic", out Mod _))
+            if (!ModLoader.HasMod("FargowiltasMusic"))
             {
-                Main.NewText(Language.GetTextValue($"Mods.{Mod.Name}.Message.NoMusic1"), Color.LimeGreen);
-                Main.NewText(Language.GetTextValue($"Mods.{Mod.Name}.Message.NoMusic2"), Color.LimeGreen);
+                if (Player.whoAmI == Main.myPlayer)
+                    InGameNotificationsTracker.AddNotification(new NoMusicNotification());
             }
-            if (!ModLoader.TryGetMod("FargowiltasCrossmod", out Mod soulsDLC))
+            if (!ModLoader.HasMod("FargowiltasCrossmod"))
             {
-                List<string> supportedMods = [];
-                if (ModLoader.TryGetMod("CalamityMod", out Mod calamity))
+                if (ModLoader.HasMod("CalamityMod"))
                 {
-                    supportedMods.Add(calamity.DisplayName);
-                }
-                if (ModLoader.TryGetMod("NoxusBoss", out Mod WotG))
-                {
-                    supportedMods.Add(WotG.DisplayName);
-                }
-                if (supportedMods.Count > 0)
-                {
-                    string modsString = "";
-                    for (int i = 0; i < supportedMods.Count; i++)
-                    {
-                        modsString += supportedMods[i];
-                        if (i + 2 < supportedMods.Count)
-                        {
-                            modsString += ", ";
-                        }
-                        else if (i + 1 < supportedMods.Count)
-                        {
-                            modsString += " and ";
-                        }
-                    }
-                    Main.NewText(Language.GetTextValue($"Mods.{Mod.Name}.Message.NoDLC1", modsString), Color.Green);
-                    Main.NewText(Language.GetTextValue($"Mods.{Mod.Name}.Message.NoDLC2"), Color.Green);
+                    if (Player.whoAmI == Main.myPlayer)
+                        InGameNotificationsTracker.AddNotification(new NoDLCNotification());
                 }
             }
 

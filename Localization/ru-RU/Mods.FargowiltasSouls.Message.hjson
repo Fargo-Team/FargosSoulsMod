@@ -15,10 +15,6 @@ WorldUpdatingSystem: {
 }
 
 Revived: Вы были возрождены!
-NoMusic1: Мод Fargo's Music не найден!
-NoMusic2: Пожалуйста, установите мод Fargo's Music для полного опыта!!
-NoDLC1: Мы обнаружили, что вы включили моды Fargo's Souls и {0}.
-NoDLC2: Мы рекомендуем использовать мод «Fargo's Souls DLC» для совместимости и контента для этих модов!
 Wiki: Официальная вики Fargo's, теперь на [c/3989FF:https://fargosmods.wiki.gg]!
 PatreonNameEffect: Ваши специальные эффекты Patreon включены
 MoonsDeathPenalty: Прогресс события регрессировал!

@@ -73,3 +73,14 @@ ActiveSkills: 主动技能
 AvailableSkills: 可用技能
 SelectDifficulty: 选择难度
 NoRespawn: 禁止重生：在{0}多人模式中每个玩家每场Boss战只能重生一次！
+/* NoDLC:
+	'''
+	WARNING: You are playing Fargo's Souls Mod with the Calamity Mod without the compatibility mod!
+	We highly recommend you to install the "Calamity - Fargo's Souls DLC" mod for compatibility between these mods before proceeding!
+	The DLC mod also adds new content and optional Eternity reworks for Calamity bosses!
+	''' */
+/* NoMusic:
+	'''
+	WARNING: Fargo's Music Mod not found!
+	Please install Fargo's Music Mod for the full experience!
+	''' */

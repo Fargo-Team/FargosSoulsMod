@@ -75,3 +75,14 @@ TitleLinks: {
 // AvailableSkills: Available Skills
 // SelectDifficulty: Select Difficulty
 // NoRespawn: Respawn prevented: Only one respawn per boss in {0} multiplayer!
+/* NoDLC:
+	'''
+	WARNING: You are playing Fargo's Souls Mod with the Calamity Mod without the compatibility mod!
+	We highly recommend you to install the "Calamity - Fargo's Souls DLC" mod for compatibility between these mods before proceeding!
+	The DLC mod also adds new content and optional Eternity reworks for Calamity bosses!
+	''' */
+/* NoMusic:
+	'''
+	WARNING: Fargo's Music Mod not found!
+	Please install Fargo's Music Mod for the full experience!
+	''' */

@@ -18,8 +18,6 @@ namespace FargowiltasSouls.Content.NPCs.EternityModeNPCs
 {
     public class CrystalLeaf : ModNPC
     {
-        public override string Texture => "Terraria/Images/Projectile_226";
-
         public override void SetStaticDefaults()
         {
             NPCID.Sets.TrailCacheLength[NPC.type] = 6;

@@ -15,6 +15,12 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Nature
     {
         public override string Texture => "Terraria/Images/Projectile_226";
 
+        public override void SetStaticDefaults()
+        {
+            base.SetStaticDefaults();
+            Main.projFrames[Type] = 1;
+        }
+
         public override void SetDefaults()
         {
             base.SetDefaults();

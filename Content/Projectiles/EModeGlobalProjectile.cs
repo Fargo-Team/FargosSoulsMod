@@ -757,7 +757,7 @@ namespace FargowiltasSouls.Content.Projectiles
                     break;
 
                 case ProjectileID.QueenBeeStinger:
-                    projectile.velocity.Y -= 0.1f; //negate gravity
+                    projectile.ai[0] = 0; //negate gravity
                     break;
 
                 case ProjectileID.BeeHive:

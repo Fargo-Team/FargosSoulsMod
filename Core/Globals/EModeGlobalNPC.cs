@@ -97,6 +97,17 @@ namespace FargowiltasSouls.Core.Globals
             //pre hm get 8x and 5x
         }
 
+        public static void RefreshBuff(NPC npc, int buffId, int duration = 120)
+        {
+            //Only apply buff if required
+            int index = npc.FindBuffIndex(buffId);
+
+            if (index == -1 || npc.buffTime[index] < 30)
+            {
+                npc.AddBuff(buffId, duration);
+            }
+        }
+
         public override bool PreAI(NPC npc)
         {
             if (!WorldSavingSystem.EternityMode)
@@ -146,21 +157,21 @@ namespace FargowiltasSouls.Core.Globals
                 {
                     if (currentTile.WallType == WallID.None)
                     {
-                        npc.AddBuff(BuffID.Wet, 2);
+                        RefreshBuff(npc, BuffID.Wet, 240);
                     }
                 }
 
                 if (npc.wet && !npc.noTileCollide && !isWaterEnemy && npc.HasPlayerTarget)
                 {
-                    npc.AddBuff(ModContent.BuffType<LethargicBuff>(), 2, true);
+                    RefreshBuff(npc, ModContent.BuffType<LethargicBuff>());
                     if (Main.player[npc.target].ZoneCorrupt)
-                        npc.AddBuff(BuffID.CursedInferno, 2, true);
+                        RefreshBuff(npc, BuffID.CursedInferno);
                     if (Main.player[npc.target].ZoneCrimson)
-                        npc.AddBuff(BuffID.Ichor, 2, true);
+                        RefreshBuff(npc, BuffID.Ichor);
                     if (Main.player[npc.target].ZoneHallow)
-                        npc.AddBuff(ModContent.BuffType<SmiteBuff>(), 2, true);
+                        RefreshBuff(npc, ModContent.BuffType<SmiteBuff>());
                     if (Main.player[npc.target].ZoneJungle)
-                        npc.AddBuff(BuffID.Poisoned, 2, true);
+                        RefreshBuff(npc, BuffID.Poisoned);
                 }
 
 
@@ -171,7 +182,7 @@ namespace FargowiltasSouls.Core.Globals
                 //}
             }
 
-            
+
 
             return true;
         }
@@ -333,7 +344,7 @@ namespace FargowiltasSouls.Core.Globals
                         {
                             pool[NPCID.GoblinScout] = scoutRate;
                         }
-                            
+
 
                     }
                     else if (wideUnderground)
@@ -361,7 +372,7 @@ namespace FargowiltasSouls.Core.Globals
                                 pool[NPCID.DarkCaster] = .02f;
                             if (noBiome && (!pool.ContainsKey(NPCID.RockGolem) || pool[NPCID.RockGolem] < 0.01f))
                                 pool[NPCID.RockGolem] = 0.01f;
-                                
+
                         }
 
                         if (NPC.downedGoblins && !NPC.savedGoblin && !NPC.AnyNPCs(NPCID.BoundGoblin))
@@ -480,7 +491,7 @@ namespace FargowiltasSouls.Core.Globals
                                 if (!pool.ContainsKey(NPCID.Werewolf) || pool[NPCID.Werewolf] < 0.005f)
                                     pool[NPCID.Werewolf] = 0.005f;
                             }
-                                
+
 
                             if (normalSpawn)
                             {
@@ -884,7 +895,7 @@ namespace FargowiltasSouls.Core.Globals
                 conditionalRule.OnSuccess(rule);
                 npcLoot.Add(conditionalRule);
             }
-            
+
             switch (npc.type)
             {
                 case NPCID.BlueSlime:

@@ -254,7 +254,7 @@ namespace FargowiltasSouls.Core.ModPlayers
         }
 
 
-        public void SpecialDashKey(bool heart = false)
+        public void SpecialDashKey(int type)
         {
             if (SpecialDashCD <= 0)
             {
@@ -271,13 +271,13 @@ namespace FargowiltasSouls.Core.ModPlayers
                     Player.controlUseItem = false;
                     Player.controlUseTile = false;
                     Player.controlHook = false; 
-                    Player.controlMount = false;
+                    //Player.controlMount = false;
 
                     Player.itemAnimation = 0;
                     Player.itemTime = 0;
                     Player.reuseDelay = 0;
 
-                    if (BetsysHeartItem != null && heart)
+                    if (Player.HasEffect<BetsyDashEffect>() && type == 2)
                     {
                         Vector2 vel = Player.SafeDirectionTo(Main.MouseWorld) * 25;
                         Projectile.NewProjectile(Player.GetSource_Accessory(BetsysHeartItem), Player.Center, vel, ModContent.ProjectileType<Content.Projectiles.BetsyDash>(), (int)(100 * Player.ActualClassDamage(DamageClass.Melee)), 6f, Player.whoAmI);
@@ -287,19 +287,10 @@ namespace FargowiltasSouls.Core.ModPlayers
                         Player.hurtCooldowns[0] = Math.Max(Player.hurtCooldowns[0], 2);
                         Player.hurtCooldowns[1] = Math.Max(Player.hurtCooldowns[1], 2);
 
-                        //immune to all debuffs
-                        foreach (int debuff in FargowiltasSouls.DebuffIDs)
-                        {
-                            if (!Player.HasBuff(debuff))
-                            {
-                                Player.buffImmune[debuff] = true;
-                            }
-                        }
-
                         CooldownBarManager.Activate("SpecialDashCooldown", ModContent.Request<Texture2D>("FargowiltasSouls/Content/Items/Accessories/Masomode/BetsysHeart").Value, Color.OrangeRed, 
                             () => 1 - (float)SpecialDashCD / LumUtils.SecondsToFrames(5), activeFunction: () => BetsysHeartItem != null);
                     }
-                    else if (QueenStingerItem != null)
+                    else if (Player.HasEffect<SpecialDashEffect>() && type == 0)
                     {
                         SpecialDashCD += LumUtils.SecondsToFrames(1);
 

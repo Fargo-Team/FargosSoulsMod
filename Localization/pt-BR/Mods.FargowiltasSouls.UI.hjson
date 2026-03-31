@@ -75,3 +75,14 @@ ActiveSkills: Habilidades ativas
 AvailableSkills: Habilidades disponíveis
 SelectDifficulty: Selecionar dificuldade
 NoRespawn: Renascimento impedido: Apenas um renascimento permitido no Modo Masoquista Multiplayer!
+/* NoDLC:
+	'''
+	WARNING: You are playing Fargo's Souls Mod with the Calamity Mod without the compatibility mod!
+	We highly recommend you to install the "Calamity - Fargo's Souls DLC" mod for compatibility between these mods before proceeding!
+	The DLC mod also adds new content and optional Eternity reworks for Calamity bosses!
+	''' */
+/* NoMusic:
+	'''
+	WARNING: Fargo's Music Mod not found!
+	Please install Fargo's Music Mod for the full experience!
+	''' */

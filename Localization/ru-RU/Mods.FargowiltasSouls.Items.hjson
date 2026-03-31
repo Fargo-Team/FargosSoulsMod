@@ -24,7 +24,7 @@ AncientHallowEnchant: {
 	DisplayName: Зачарование древнего освящения
 	Tooltip:
 		'''
-		Призывает помощника-Террапризму, урон которого увеличивается с уроном прислужников (нужен 1 свободный слот призыва)
+		Призывает помощника-Террапризму, урон которого увеличивается с уроном прислужников и занимает 1 ячейку миньонов
 		Меч преследует ваш курсор
 		Нажмите ПКМ, чтобы взамхнуть мечом 
 		Попадания мечом по вражеским выстрелам отразят их обратно во врага
@@ -3686,47 +3686,47 @@ TouhouStaff: {
 
 BaronP1MusicBox: {
 	DisplayName: Музыкальная шкатулка (Бранный Барон — Фаза 1)
-	Tooltip: Проигрывает «Will of the Waves», авт. zentaque & Azathoth
+	Tooltip: Проигрывает «Will of the Waves» от zentaque & Azathoth
 }
 
 BaronP2MusicBox: {
 	DisplayName: Музыкальная шкатулка (Бранный Барон — Фаза 2)
-	Tooltip: Проигрывает «Will of the Waves», авт. zentaque & Azathoth
+	Tooltip: Проигрывает «Will of the Waves» от zentaque & Azathoth
 }
 
 TrojanMusicBox: {
 	DisplayName: Музыкальная шкатулка (Троянская белка)
-	Tooltip: Проигрывает «Nuts And Bolts», авт. ProduceVGM
+	Tooltip: Проигрывает «Nuts And Bolts» от ProduceVGM
 }
 
 AbominationnP1MusicBox: {
 	DisplayName: Музыкальная шкатулка (Выродокк — Фаза 1)
-	Tooltip: Проигрывает «Laevateinn», авт. Yuri O
+	Tooltip: Проигрывает «Laevateinn» от Yuri O
 }
 
 AbominationnP2MusicBox: {
 	DisplayName: Музыкальная шкатулка (Выродокк — 2)
-	Tooltip: Проигрывает «Laevateinn», авт. Yuri O
+	Tooltip: Проигрывает «Laevateinn» от Yuri O
 }
 
 CoffinMusicBox: {
 	DisplayName: Музыкальная шкатулка (Скверный Саркофаг)
-	Tooltip: Проигрывает «Shifting Sands», авт. zentaque & Azathoth
+	Tooltip: Проигрывает «Shifting Sands» от zentaque & Azathoth
 }
 
 EridanusMusicBox: {
 	DisplayName: Музыкальная шкатулка (Эриданус)
-	Tooltip: Проигрывает «Platinum Star», авт. Yuri O
+	Tooltip: Проигрывает «Platinum Star» от Yuri O
 }
 
 LifelightMusicBox: {
 	DisplayName: Музыкальная шкатулка (Жизнесвет)
-	Tooltip: Проигрывает «Illustrious Illuminescence», авт. ProduceVGM
+	Tooltip: Проигрывает «Illustrious Illuminescence» от ProduceVGM
 }
 
 MainMenuMusicBox: {
 	DisplayName: Музыкальная шкатулка (Главное меню)
-	Tooltip: Проигрывает «Nein», авт. Sakuzyo
+	Tooltip: Проигрывает «Nein» от Sakuzyo
 }
 
 BaronMask: {

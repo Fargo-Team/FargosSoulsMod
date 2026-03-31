@@ -325,6 +325,7 @@ namespace FargowiltasSouls.Core.ModPlayers
 
         // buffs
         public bool Ambrosia;
+        public bool SpecialDash;
 
         //debuffs
         public bool Hexed;

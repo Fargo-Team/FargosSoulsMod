@@ -40,16 +40,6 @@ namespace FargowiltasSouls.Common
             }
             return base.CanAcceptItem(checkItem, context);
         }
-        /*
-        public override bool ModifyDefaultSwapSlot(Item item, int accSlotToSwapTo)
-        {
-            if ((item.ModItem != null && (item.ModItem is BaseEnchant || item.ModItem is BaseForce || item.ModItem is BaseSoul)) || AllowedItemExceptions.Contains(item.type))
-            {
-                return true;
-            }
-            return false;
-        }
-        */
         public override bool IsVisibleWhenNotEnabled() => false;
         public override bool IsEnabled()
         {

@@ -198,7 +198,19 @@ SoulConfig: {
 
 RespawnPreventionSetting: {
 	Tooltip: ""
-	Eternity.Label: Eternity Mode
-	Masochist.Label: Masochist Mode
-	Disabled.Label: Disabled
+
+	Eternity: {
+		Label: Eternity Mode
+		Tooltip: ""
+	}
+
+	Masochist: {
+		Label: Masochist Mode
+		Tooltip: ""
+	}
+
+	Disabled: {
+		Label: Disabled
+		Tooltip: ""
+	}
 }

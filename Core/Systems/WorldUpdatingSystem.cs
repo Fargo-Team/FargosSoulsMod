@@ -33,7 +33,7 @@ namespace FargowiltasSouls.Core.Systems
 
                 if (noCoffin || !ShiftingSandEvent)
                 {
-                    Vector2 coffinArenaCenter = CoffinArena.Center.ToWorldCoordinates();
+                    Vector2 coffinArenaCenter = CoffinArena.FightCenter;
                     for (int i = 0; i < Main.maxPlayers; i++)
                     {
                         Player player = Main.player[i];

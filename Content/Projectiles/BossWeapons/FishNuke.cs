@@ -119,9 +119,9 @@ namespace FargowiltasSouls.Content.Projectiles.BossWeapons
             target.AddBuff(ModContent.BuffType<CurseoftheMoon>(), 900);
             target.AddBuff(BuffID.Frostburn, 300);*/
             
-            if (Projectile.owner == Main.myPlayer && Projectile.width < 400 && Projectile.height < 400)
+            if (Projectile.owner == Main.myPlayer && Projectile.width < 400 && Projectile.height < 400 && Projectile.ai[0] != -2f)
             {
-                SoundEngine.PlaySound(FargosSoundRegistry.NukeFishronExplosion, Projectile.Center);
+                SoundEngine.PlaySound(FargosSoundRegistry.NukeFishronExplosion with { Volume = 0.5f, MaxInstances = 1 }, Projectile.Center);
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<FishNukeExplosion>(), Projectile.damage, Projectile.knockBack * 2f, Projectile.owner, 0, 0, Main.rand.Next(0, 365));
                 Projectile.timeLeft = 20;
                 Projectile.hide = true;
@@ -132,13 +132,21 @@ namespace FargowiltasSouls.Content.Projectiles.BossWeapons
             }
         }
 
-        /*public override bool OnTileCollide(Vector2 oldVelocity)
+        public override bool OnTileCollide(Vector2 oldVelocity)
         {
-            if (Projectile.owner == Main.myPlayer)
-                Projectile.NewProjectile(Projectile.Center, Vector2.Zero, ModContent.ProjectileType<FishNukeExplosion>(),
-                    Projectile.damage, Projectile.knockBack * 2f, Projectile.owner);
-            return true;
-        }*/
+            if (Projectile.owner == Main.myPlayer && Projectile.width < 400 && Projectile.height < 400 && Projectile.ai[0] != -2f)
+            {
+                SoundEngine.PlaySound(FargosSoundRegistry.NukeFishronExplosion with { Volume = 0.5f, MaxInstances = 1 }, Projectile.Center);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<FishNukeExplosion>(), Projectile.damage, Projectile.knockBack * 2f, Projectile.owner, 0, 0, Main.rand.Next(0, 365));
+                Projectile.timeLeft = 20;
+                Projectile.hide = true;
+                Projectile.ai[0] = -2f;
+                Projectile.velocity *= 0;
+                Projectile.knockBack *= 2f;
+                Projectile.Resize(200, 200);
+            }
+            return false;
+        }
 
         public override void OnKill(int timeLeft)
         {

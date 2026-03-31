@@ -64,6 +64,12 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Spirit
         {
             if (target.HasBuff<GrabbedBuff>())
                 return false;
+            NPC head = FargoSoulsUtil.NPCExists(NPC.ai[1], ModContent.NPCType<SpiritChampion>());
+            if (head == null)
+                return false;
+            if (head.As<SpiritChampion>().GrabCooldown > 0)
+                return false;
+
             CooldownSlot = 1;
             return NPC.localAI[3] == 0;
         }
@@ -204,6 +210,8 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Spirit
                             Movement(head.Center, 0.8f, 24f);
 
                             player.AddBuff(ModContent.BuffType<Buffs.Boss.GrabbedBuff>(), 2);
+                            head.As<SpiritChampion>().GrabCooldown = (int)(60 * 2.5f);
+                            head.netUpdate = true;
 
                             if (!player.immune || player.immuneTime < 2)
                             {

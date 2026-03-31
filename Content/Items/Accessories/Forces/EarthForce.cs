@@ -130,7 +130,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Forces
                 {
                     float pitch = -0.2f;
                     farg.MythrilSoundCooldown = 90;
-                    SoundEngine.PlaySound(new SoundStyle($"{nameof(FargowiltasSouls)}/Assets/Sounds/Accessories/MythrilCharged") with { Pitch = pitch }, player.Center);
+                    SoundEngine.PlaySound(new SoundStyle($"{nameof(FargowiltasSouls)}/Assets/Sounds/Accessories/MythrilCharged") with { Volume = 0.6f, Pitch = pitch }, player.Center);
                 }
 
                 for (int i = 0; i < 5; i++)

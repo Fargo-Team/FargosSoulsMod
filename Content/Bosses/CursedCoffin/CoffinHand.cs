@@ -208,7 +208,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
                             State = 101;
                             owner.netUpdate = true;
                             victim.AddBuff(ModContent.BuffType<CoffinTossBuff>(), 100);
-                            Vector2 arenaCenter = CoffinArena.Center.ToWorldCoordinates();
+                            Vector2 arenaCenter = CoffinArena.FightCenter;
                             int sign = Math.Sign(arenaCenter.DirectionTo(target.Center).X);
                             if (sign != 1 && sign != -1)
                                 sign = Main.rand.NextBool() ? 1 : -1;
@@ -222,7 +222,7 @@ namespace FargowiltasSouls.Content.Bosses.CursedCoffin
                             if (WorldSavingSystem.MasochistModeReal) // practically inescapable on maso
                                 mashCap += 666;
 
-                            Vector2 arenaCenter = CoffinArena.Center.ToWorldCoordinates();
+                            Vector2 arenaCenter = CoffinArena.FightCenter;
                             bool releaseAtCenter = State == 66 && Projectile.Distance(arenaCenter) < 100;
 
                             if (victim.Alive() && (Projectile.Distance(victim.Center) < 160 || victim.whoAmI != Main.myPlayer) && victim.FargoSouls().MashCounter < mashCap && !releaseAtCenter)

@@ -32,7 +32,7 @@ namespace FargowiltasSouls.Content.Items.Weapons.SwarmDrops
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 7.7f;
-            Item.UseSound = FargosSoundRegistry.NukeFishronFire;
+            Item.UseSound = FargosSoundRegistry.NukeFishronFire with { Volume = 0.6f };
             Item.useAmmo = AmmoID.Rocket;
             Item.value = Item.sellPrice(0, 25);
             Item.rare = ItemRarityID.Purple;

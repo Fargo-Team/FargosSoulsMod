@@ -94,7 +94,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
                     float diff = (modPlayer.MythrilMaxTime - modPlayer.MythrilTimer);
                     if (diff > 0 && diff < 2 && player.whoAmI == Main.myPlayer && modPlayer.MythrilSoundCooldown <= 0)
                     {
-                        SoundEngine.PlaySound(new SoundStyle($"{nameof(FargowiltasSouls)}/Assets/Sounds/Accessories/MythrilCharged"), player.Center);
+                        SoundEngine.PlaySound(new SoundStyle($"{nameof(FargowiltasSouls)}/Assets/Sounds/Accessories/MythrilCharged") with { Volume = 0.6f }, player.Center);
                         modPlayer.MythrilSoundCooldown = 90;
                         //Projectile.NewProjectile(GetSource_EffectItem(player), player.Top, Vector2.Zero, ModContent.ProjectileType<EffectVisual>(), 0, 0, player.whoAmI, (float)EffectVisual.Effects.MythrilEnchant);
                     }

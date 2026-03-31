@@ -198,7 +198,19 @@ SoulConfig: {
 
 RespawnPreventionSetting: {
 	Tooltip: ""
-	Eternity.Label: 永恒模式
-	Masochist.Label: 受虐模式
-	Disabled.Label: 禁用
+
+	Eternity: {
+		Label: 永恒模式
+		// Tooltip: ""
+	}
+
+	Masochist: {
+		Label: 受虐模式
+		// Tooltip: ""
+	}
+
+	Disabled: {
+		Label: 禁用
+		// Tooltip: ""
+	}
 }

@@ -78,6 +78,8 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Spirit
         private bool doPredictiveSandnado;
         public const float auraDistance = 1200;
 
+        public int GrabCooldown;
+
         public override void SetDefaults()
         {
             NPC.width = 120;
@@ -121,6 +123,8 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Spirit
             writer.Write(NPC.localAI[1]);
             writer.Write(NPC.localAI[2]);
             writer.Write(NPC.localAI[3]);
+
+            writer.Write(GrabCooldown);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
@@ -129,11 +133,16 @@ namespace FargowiltasSouls.Content.Bosses.Champions.Spirit
             NPC.localAI[1] = reader.ReadSingle();
             NPC.localAI[2] = reader.ReadSingle();
             NPC.localAI[3] = reader.ReadSingle();
+
+            GrabCooldown = reader.ReadInt32();
         }
 
         public override void AI()
         {
             EModeGlobalNPC.championBoss = NPC.whoAmI;
+
+            if (GrabCooldown > 0)
+                GrabCooldown--;
 
             if (NPC.localAI[3] == 0) //spawn friends
             {

@@ -35,8 +35,6 @@ namespace FargowiltasSouls.Content.Items.Accessories.Masomode
             player.buffImmune[BuffID.WitheredWeapon] = true;
             player.buffImmune[BuffID.WitheredArmor] = true;
             player.FargoSouls().BetsysHeartItem = Item;
-            player.FargoSouls().QueenStingerItem = Item;
-            player.AddEffect<SpecialDashEffect>(Item);
             player.AddEffect<BetsyDashEffect>(Item);
         }
     }
@@ -49,7 +47,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Masomode
         {
             if (stunned)
                 return;
-            player.FargoSouls().SpecialDashKey(true);
+            player.FargoSouls().SpecialDashKey(2);
         }
     }
 }

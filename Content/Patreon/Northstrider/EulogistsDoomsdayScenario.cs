@@ -23,7 +23,7 @@ namespace FargowiltasSouls.Content.Patreon.Northstrider
             Item.rare = ItemRarityID.Blue;
             Item.value = 100;
 
-            Item.useStyle = ItemHoldStyleID.HoldUp;
+            Item.useStyle = ItemUseStyleID.HoldUp;
             Item.useAnimation = 30;
             Item.useTime = 30;
         }

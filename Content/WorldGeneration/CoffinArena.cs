@@ -13,9 +13,8 @@ namespace FargowiltasSouls.Content.WorldGeneration
 {
     public static class CoffinArena
     {
-        public const int Width = 60; // Width of internal room
-
-        public const int Height = 35; // Height of internal room
+        public static int Width = 60; // Width of internal room
+        public static int Height = 35; // Height of internal room
 
         public static int VectorWidth => Width * 16;
         public static int VectorHeight => Height * 16;
@@ -23,6 +22,7 @@ namespace FargowiltasSouls.Content.WorldGeneration
         public static Point16 StructureSize = Point16.Zero;
         private static int PaddedWidth => StructureSize.X + 2;
         public static Point Center => WorldSavingSystem.CoffinArenaCenter;
+        public static Vector2 FightCenter => Center.ToWorldCoordinates() + Vector2.UnitX * 8;
         public static Rectangle Rectangle = new();
         public static Rectangle PaddedRectangle => Rectangle.Modified(-2, -2, 4, 4);
 
@@ -190,7 +190,7 @@ namespace FargowiltasSouls.Content.WorldGeneration
 
         public static Vector2 ClampWithinArena(Vector2 vector, Entity entityToPadBasedOn)
         {
-            Vector2 center = Center.ToWorldCoordinates();
+            Vector2 center = FightCenter;
             float xBound = (Width * 8) - entityToPadBasedOn.width * 0.6f;
             float yBound = (Height * 8) - entityToPadBasedOn.height * 0.6f;
             vector.X = Math.Clamp(vector.X, center.X - xBound, center.X + xBound);
@@ -199,14 +199,14 @@ namespace FargowiltasSouls.Content.WorldGeneration
         }
         public static List<Vector2> ArenaCorners(Entity entityToPadBasedOn)
         {
-            Vector2 center = Center.ToWorldCoordinates();
+            Vector2 center = FightCenter;
             Vector2 xBound = Vector2.UnitX * ((Width * 8) - entityToPadBasedOn.width * 0.6f);
             Vector2 yBound = Vector2.UnitY * ((Height * 8) - entityToPadBasedOn.height * 0.6f);
             return [center - xBound - yBound, center - xBound + yBound, center + xBound - yBound, center + xBound + yBound];
         }
         public static List<Vector2> TopArenaCorners(Entity entityToPadBasedOn)
         {
-            Vector2 center = Center.ToWorldCoordinates();
+            Vector2 center = FightCenter;
             Vector2 xBound = Vector2.UnitX * ((Width * 8) - entityToPadBasedOn.width * 0.6f);
             Vector2 yBound = Vector2.UnitY * ((Height * 8) - entityToPadBasedOn.height * 0.6f);
             return [center - xBound - yBound, center + xBound - yBound];

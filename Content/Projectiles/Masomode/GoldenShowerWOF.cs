@@ -41,6 +41,7 @@ namespace FargowiltasSouls.Content.Projectiles.Masomode
 
         public override void AI()
         {
+            Projectile.extraUpdates = (int)Projectile.ai[1];
             if (Projectile.localAI[1] == 0)
             {
                 Projectile.localAI[1] = 1;

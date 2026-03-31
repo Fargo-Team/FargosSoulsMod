@@ -2,10 +2,12 @@
 using FargowiltasSouls.Content.Bosses.DeviBoss;
 using FargowiltasSouls.Content.Bosses.MutantBoss;
 using FargowiltasSouls.Content.Items.Accessories.Masomode;
+using FargowiltasSouls.Content.WorldGeneration;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using FargowiltasSouls.Core.Globals;
 using FargowiltasSouls.Core.Systems;
 using Luminance.Core.ModCalls;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -406,6 +408,42 @@ namespace FargowiltasSouls
         {
             var proj = argsWithoutCommand[0] as Projectile;
             proj.FargoSouls().DeletionImmuneRank = (int)(argsWithoutCommand[1]);
+            return ModCallManager.DefaultObject;
+        }
+    }
+
+    internal sealed class SetCoffinArenaCenterCall : ModCall
+    {
+        public override IEnumerable<string> GetCallCommands()
+        {
+            yield return "SetCoffinArenaCenter";
+        }
+        public override IEnumerable<Type> GetInputTypes()
+        {
+            yield return typeof(Point);
+        }
+        protected override object SafeProcess(params object[] argsWithoutCommand)
+        {
+            CoffinArena.SetArenaPosition((Point)argsWithoutCommand[0]);
+
+            return ModCallManager.DefaultObject;
+        }
+    }
+
+    internal sealed class SpawnCoffinArenaCall : ModCall
+    {
+        public override IEnumerable<string> GetCallCommands()
+        {
+            yield return "SpawnCoffinArena";
+        }
+        public override IEnumerable<Type> GetInputTypes()
+        {
+            yield return typeof(Point);
+        }
+        protected override object SafeProcess(params object[] argsWithoutCommand)
+        {
+            CoffinArena.Place((Point)argsWithoutCommand[0]);
+
             return ModCallManager.DefaultObject;
         }
     }

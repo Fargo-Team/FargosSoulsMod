@@ -314,11 +314,9 @@ namespace FargowiltasSouls.Content.Bosses.VanillaEternity
                         break;
 
                     case 11: //p3 dash
-                        if (GeneralTimer > 2)
-                            GeneralTimer = 2;
-                        if (GeneralTimer == 2)
+                        if (++GeneralTimer > 2)
                         {
-                            //Counter0 = 0;
+                            GeneralTimer = 0;
                             if (FargoSoulsUtil.HostCheck)
                             {
                                 FargoSoulsUtil.NewNPCEasy(npc.GetSource_FromThis(), npc.Center,

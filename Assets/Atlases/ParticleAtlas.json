@@ -24,10 +24,58 @@
         "y": 0.5
       }
     },
-    "SmokeParticle": {
+    "FlameParticle": {
       "frame": {
         "x": 160,
         "y": 0,
+        "w": 32,
+        "h": 362
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 11,
+        "w": 32,
+        "h": 362
+      },
+      "sourceSize": {
+        "w": 48,
+        "h": 384
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "MetaballBase": {
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 360,
+        "h": 360
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 360
+      },
+      "sourceSize": {
+        "w": 360,
+        "h": 360
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "SmokeParticle": {
+      "frame": {
+        "x": 160,
+        "y": 362,
         "w": 80,
         "h": 218
       },
@@ -50,8 +98,8 @@
     },
     "ElectricSpark": {
       "frame": {
-        "x": 160,
-        "y": 218,
+        "x": 240,
+        "y": 360,
         "w": 22,
         "h": 170
       },
@@ -75,7 +123,7 @@
     "Bloom": {
       "frame": {
         "x": 240,
-        "y": 0,
+        "y": 530,
         "w": 100,
         "h": 100
       },
@@ -98,8 +146,8 @@
     },
     "AlphaBloom": {
       "frame": {
-        "x": 240,
-        "y": 100,
+        "x": 262,
+        "y": 360,
         "w": 93,
         "h": 93
       },
@@ -122,8 +170,8 @@
     },
     "SparkParticle": {
       "frame": {
-        "x": 240,
-        "y": 193,
+        "x": 262,
+        "y": 453,
         "w": 64,
         "h": 64
       },
@@ -146,8 +194,8 @@
     },
     "BigSparkle": {
       "frame": {
-        "x": 182,
-        "y": 218,
+        "x": 160,
+        "y": 580,
         "w": 50,
         "h": 50
       },
@@ -170,8 +218,8 @@
     },
     "RectangleParticle": {
       "frame": {
-        "x": 304,
-        "y": 193,
+        "x": 210,
+        "y": 580,
         "w": 16,
         "h": 50
       },
@@ -192,14 +240,38 @@
         "y": 0.5
       }
     },
+    "HexagonParticle": {
+      "frame": {
+        "x": 326,
+        "y": 453,
+        "w": 36,
+        "h": 40
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 36,
+        "h": 40
+      },
+      "sourceSize": {
+        "w": 36,
+        "h": 40
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
     "HeartParticle": {
       "frame": {
-        "x": 320,
-        "y": 193,
+        "x": 326,
+        "y": 493,
         "w": 22,
         "h": 20
       },
-      "rotated": true,
+      "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
@@ -218,12 +290,12 @@
     },
     "Bubble": {
       "frame": {
-        "x": 320,
-        "y": 215,
+        "x": 226,
+        "y": 580,
         "w": 10,
         "h": 19
       },
-      "rotated": true,
+      "rotated": false,
       "trimmed": true,
       "spriteSourceSize": {
         "x": 0,
@@ -242,8 +314,8 @@
     },
     "SmallSparkle": {
       "frame": {
-        "x": 320,
-        "y": 225,
+        "x": 326,
+        "y": 513,
         "w": 15,
         "h": 15
       },
@@ -271,7 +343,7 @@
     "image": "ParticleAtlas.png",
     "format": "RGBA8888",
     "size": {
-      "w": 340,
+      "w": 552,
       "h": 636
     },
     "scale": 1

@@ -198,7 +198,7 @@ namespace FargowiltasSouls.Content.UI
             
             layers.Insert(0, new LegacyGameInterfaceLayer("Fargo: Title Links", delegate
             {
-                if (!WorldGen.generatingWorld && !WorldGen.drunkWorldGen && Main.menuMode == 0)
+                if (Main.gameMenu && !WorldGen.generatingWorld && !WorldGen.drunkWorldGen && Main.menuMode == 0)
                 {
                     //Console.WriteLine("Hi");
                     float upBump = 0;

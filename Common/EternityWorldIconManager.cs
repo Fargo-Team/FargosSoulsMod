@@ -6,7 +6,7 @@ using Terraria.ModLoader.IO;
 
 namespace FargowiltasSouls.Common
 {
-    /*
+    
     public class EternityWorldIconManager : ModSystem
     {
         public override void SaveWorldHeader(TagCompound tag)
@@ -15,7 +15,7 @@ namespace FargowiltasSouls.Common
             tag["MasochistWorld"] = WorldSavingSystem.MasochistModeReal;
         }
     }
-    public class ÉternityInfoUIManager : InfoUIManager
+    public class EternityInfoUIManager : InfoUIManager
     {
         public static bool EternityWorld(TagCompound tag) => tag.ContainsKey("EternityWorld") && tag.GetBool("EternityWorld");
         public static bool MasoWorld(TagCompound tag) => tag.ContainsKey("MasochistWorld") && tag.GetBool("MasochistWorld");
@@ -47,7 +47,5 @@ namespace FargowiltasSouls.Common
 
         internal static string EternityIconPath => "FargowiltasSouls/Assets/UI/OncomingMutant";
         internal static string MasochistIconPath => "FargowiltasSouls/Assets/UI/OncomingMutantWithAura";
-        
     }
-    */
 }

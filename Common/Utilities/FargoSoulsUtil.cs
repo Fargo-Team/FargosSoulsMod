@@ -767,10 +767,10 @@ namespace FargowiltasSouls //lets everything access it without using
                 velocity += vProjN * (float)SmartAccel1D(dif.Length(), vProj.Length(), accel, decel);
             else
                 velocity -= vProjN * decel;
-
             // perpendicular to target
             velocity -= Math.Min(decel, vOrth.Length()) * vOrth.SafeNormalize(Vector2.Zero);
-
+            if (velocity == Vector2.Zero)
+                velocity = b * accel;
             return velocity;
         }
 

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using FargowiltasSouls.Content.NPCs.EternityModeNPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -9,12 +11,12 @@ namespace FargowiltasSouls.Content.Projectiles
 {
     public class BeeDash : ModProjectile
     {
-        public override string Texture => "FargowiltasSouls/Assets/ExtraTextures/Resprites/NPC_222";
+        public override string Texture => "FargowiltasSouls/Content/NPCs/EternityModeNPCs/RoyalSubject";
 
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Dash");
-            Main.projFrames[Projectile.type] = Main.npcFrameCount[NPCID.QueenBee];
+            Main.projFrames[Projectile.type] = Main.npcFrameCount[ModContent.NPCType<RoyalSubject>()];
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 10;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }
@@ -49,6 +51,13 @@ namespace FargowiltasSouls.Content.Projectiles
                 return;
             }
 
+            if (++Projectile.frameCounter > 2)
+            {
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 3)
+                    Projectile.frame = 0;
+            }
+
             player.dashDelay = 5;
             player.FargoSouls().IsDashingTimer = 0;
 
@@ -66,10 +75,10 @@ namespace FargowiltasSouls.Content.Projectiles
             player.controlUseItem = false;
             player.controlUseTile = false;
             player.controlHook = false;
-            player.controlMount = false;
+            //player.controlMount = false;
 
-            if (player.mount.Active)
-                player.mount.Dismount(player);
+            //if (player.mount.Active)
+                //player.mount.Dismount(player);
 
             if (Projectile.velocity != Vector2.Zero)
                 Projectile.rotation = Projectile.velocity.ToRotation();
@@ -78,9 +87,9 @@ namespace FargowiltasSouls.Content.Projectiles
             {
                 Projectile.localAI[0] = 1;
                 SoundEngine.PlaySound(SoundID.Item97, Projectile.Center);
-                for (int i = 0; i < 30; i++)
+                for (int i = 0; i < 20; i++)
                 {
-                    int d = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.GemTopaz, 0, 0, 0, default, 2.5f);
+                    int d = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Bee, -player.velocity.X * 0.2f, -player.velocity.Y * 0.2f, 0, default, 1.5f);
                     Main.dust[d].noGravity = true;
                     Main.dust[d].velocity *= 4f;
                 }
@@ -95,9 +104,9 @@ namespace FargowiltasSouls.Content.Projectiles
         public override void OnKill(int timeLeft)
         {
             SoundEngine.PlaySound(SoundID.Item97, Projectile.Center);
-            for (int i = 0; i < 30; i++)
+            for (int i = 0; i < 20; i++)
             {
-                int d = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.GemTopaz, 0, 0, 0, default, 2.5f);
+                int d = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Bee, 0, 0, 0, default, 1.5f);
                 Main.dust[d].noGravity = true;
                 Main.dust[d].velocity *= 4f;
             }
@@ -106,6 +115,11 @@ namespace FargowiltasSouls.Content.Projectiles
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
             return false; //dont kill proj when hits tiles
+        }
+
+        public override void DrawBehind(int index, List<int> behindNPCsAndTiles, List<int> behindNPCs, List<int> behindProjectiles, List<int> overPlayers, List<int> overWiresUI)
+        {
+            overPlayers.Add(index);
         }
 
         public override bool PreDraw(ref Color lightColor)
@@ -123,10 +137,10 @@ namespace FargowiltasSouls.Content.Projectiles
                 SpriteEffects effects = Projectile.direction < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
                 float rotationOffset = Projectile.direction < 0 ? MathHelper.Pi : 0;
 
-                float scale = Projectile.scale * 0.5f;
+                float scale = Projectile.scale;
                 Vector2 posOffset = Vector2.Zero;
                 if (Projectile.velocity != Vector2.Zero)
-                    posOffset = 16f * Projectile.velocity.SafeNormalize(Vector2.Zero);
+                    posOffset = -8f * Projectile.velocity.SafeNormalize(Vector2.Zero);
 
                 for (int i = 0; i < ProjectileID.Sets.TrailCacheLength[Projectile.type]; i++)
                 {

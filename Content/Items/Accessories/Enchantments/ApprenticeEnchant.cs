@@ -2,6 +2,7 @@
 using FargowiltasSouls.Content.Projectiles;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using FargowiltasSouls.Core.Toggler.Content;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using System.Linq;
@@ -108,9 +109,9 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
                     //first we need to find what slot the current weapon is
                     for (int j = 0; j < 10; j++) //hotbar
                     {
-                        Item item2 = player.inventory[j];
+                        Item item3 = player.inventory[j];
 
-                        if (item2.type == item.type)
+                        if (item3.type == item.type)
                         {
                             startingSlot = j;
                             break;
@@ -118,105 +119,104 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
                     }
 
                     int weaponsUsed = 0;
+                    int slot = startingSlot + 1;
+                    if (slot >= 10) // out of hotbar
+                        return;
 
-                    //then go from there and find the next weapon to fire
-                    for (int j = startingSlot; j < 10; j++) //hotbar
+                    Item item2 = player.inventory[slot];
+
+                    if (item2 != null && item2.damage > 0 && item2.shoot > ProjectileID.None && item2.ammo <= 0 && item.type != item2.type && !item2.channel)
                     {
-                        Item item2 = player.inventory[j];
+                        if (!player.HasAmmo(item2) || (item2.mana > 0 && player.statMana < item2.mana) || item2.sentry || ContentSamples.ProjectilesByType[item2.shoot].minion || Blacklist.Contains(item2.type))
+                            return;
 
-                        if (item2 != null && item2.damage > 0 && item2.shoot > ProjectileID.None && item2.ammo <= 0 && item.type != item2.type && !item2.channel)
+                        weaponsUsed++;
+                        if (weaponsUsed > 1)
+                            return;
+
+                        int itemCD = modPlayer.ApprenticeItemCD;
+
+                        if (itemCD > 0)
+                            return;
+
+                        if (!PlayerLoader.CanUseItem(player, item2) || !ItemLoader.CanUseItem(item2, player))
+                            return;
+
+                        Vector2 pos = new(player.Center.X + Main.rand.Next(-50, 50), player.Center.Y + Main.rand.Next(-50, 50));
+                        Vector2 velocity = Vector2.Normalize(Main.MouseWorld - pos);
+
+                        int projToShoot = item2.shoot;
+                        float speed = item2.shootSpeed;
+                        int damage = player.GetWeaponDamage(item2);
+                        float KnockBack = item2.knockBack;
+
+                        int itemtime = player.itemTime;
+                        int itemtimemax = player.itemTimeMax;
+                        shootMethod.Invoke(player, [player.whoAmI, item2, damage]);
+
+                        player.itemTime = itemtime;
+                        player.itemTimeMax = itemtimemax;
+                        //damage = (int)(damage * 0.75f);
+
+                        //FargoSoulsGlobalProjectile.ApprenticeDamageCap = damage;
+                        //ApprenticeEnchant.ApprenticeShoot(player, player.whoAmI, item2, damage);
+                        //FargoSoulsGlobalProjectile.ApprenticeDamageCap = 0;
+
+                        int divisor = 7;
+                        if (modPlayer.DarkArtistEnchantActive && forceEffect)
                         {
-                            if (!player.HasAmmo(item2) || (item2.mana > 0 && player.statMana < item2.mana) || item2.sentry || ContentSamples.ProjectilesByType[item2.shoot].minion || Blacklist.Contains(item2.type))
-                                continue;
-
-                            weaponsUsed++;
-                            if (weaponsUsed > 1)
-                                break;
-
-                            int itemCD = modPlayer.ApprenticeItemCD;
-
-                            if (itemCD > 0)
-                                continue;
-
-                            if (!PlayerLoader.CanUseItem(player, item2) || !ItemLoader.CanUseItem(item2, player))
-                                continue;
-
-                            Vector2 pos = new(player.Center.X + Main.rand.Next(-50, 50), player.Center.Y + Main.rand.Next(-50, 50));
-                            Vector2 velocity = Vector2.Normalize(Main.MouseWorld - pos);
-                            
-                            int projToShoot = item2.shoot;
-                            float speed = item2.shootSpeed;
-                            int damage = player.GetWeaponDamage(item2);
-                            float KnockBack = item2.knockBack;
-
-                            int itemtime = player.itemTime;
-                            int itemtimemax = player.itemTimeMax;
-                            shootMethod.Invoke(player, [player.whoAmI, item2, damage]);
-
-                            player.itemTime = itemtime;
-                            player.itemTimeMax = itemtimemax;
-                            //damage = (int)(damage * 0.75f);
-
-                            //FargoSoulsGlobalProjectile.ApprenticeDamageCap = damage;
-                            //ApprenticeEnchant.ApprenticeShoot(player, player.whoAmI, item2, damage);
-                            //FargoSoulsGlobalProjectile.ApprenticeDamageCap = 0;
-
-                            int divisor = 7;
-                            if (modPlayer.DarkArtistEnchantActive && forceEffect)
-                            {
-                                divisor = 3;
-                            }
-                            else if (modPlayer.DarkArtistEnchantActive || forceEffect)
-                            {
-                                divisor = 5;
-                            }
-
-                            if (!HasEffectEnchant(player))
-                                divisor = 10;
-
-                            modPlayer.ApprenticeItemCD = item2.useAnimation * divisor;
-
-                            if (item2.mana > 0)
-                            {
-                                if (player.CheckMana(item2.mana / 2, true, false))
-                                {
-                                    player.manaRegenDelay = 300;
-                                }
-                            }
-                            if (item2.consumable)
-                            {
-                                item2.stack--;
-                            }
-
-                            //modPlayer.ApprenticeItemCD = item2.useAnimation * 4;
-                            //if (projToShoot == ProjectileID.RainbowFront || projToShoot == ProjectileID.RainbowBack) // prevent fucked up op interaction
-                            //{
-                            //    foreach (Projectile rainbow in Main.projectile.Where(p => (p.TypeAlive(ProjectileID.RainbowFront) || p.TypeAlive(ProjectileID.RainbowBack)) && p.owner == player.whoAmI))
-                            //        rainbow.Kill();
-                            //}
-                            //int p = Projectile.NewProjectile(player.GetSource_ItemUse(item), pos, Vector2.Normalize(velocity) * speed, projToShoot, damage, KnockBack, player.whoAmI);
-                            //Projectile proj = Main.projectile[p];
-
-                            //proj.FargoSouls().DamageCap = (int)MathHelper.Max(proj.FargoSouls().DamageCap, damage);
-                            //proj.noDropItem = true;
-
-                            break;
-                            /*
-                            int shoot = item2.shoot;
-                            if (shoot == 10) //purification powder
-                            {
-                                float speed;
-                                int damage;
-                                float kb;
-                                int usedAmmo;
-                                
-                                ItemLoader.ModifyShootStats(item2, player, ref pos, ref velocity, ref shoot, ref damage, ref item2.knockBack);
-                            }
-                            */
-                            //proj.usesLocalNPCImmunity = true;
-                            //proj.localNPCHitCooldown = 5;
-
+                            divisor = 3;
                         }
+                        else if (modPlayer.DarkArtistEnchantActive || forceEffect)
+                        {
+                            divisor = 5;
+                        }
+
+                        if (!HasEffectEnchant(player))
+                            divisor = 10;
+
+                        modPlayer.ApprenticeItemCD = item2.useAnimation * divisor;
+
+                        if (item2.mana > 0)
+                        {
+                            if (player.CheckMana(item2.mana / 2, true, false))
+                            {
+                                player.manaRegenDelay = 300;
+                            }
+                        }
+                        if (item2.consumable)
+                        {
+                            item2.stack--;
+                        }
+
+                        //modPlayer.ApprenticeItemCD = item2.useAnimation * 4;
+                        //if (projToShoot == ProjectileID.RainbowFront || projToShoot == ProjectileID.RainbowBack) // prevent fucked up op interaction
+                        //{
+                        //    foreach (Projectile rainbow in Main.projectile.Where(p => (p.TypeAlive(ProjectileID.RainbowFront) || p.TypeAlive(ProjectileID.RainbowBack)) && p.owner == player.whoAmI))
+                        //        rainbow.Kill();
+                        //}
+                        //int p = Projectile.NewProjectile(player.GetSource_ItemUse(item), pos, Vector2.Normalize(velocity) * speed, projToShoot, damage, KnockBack, player.whoAmI);
+                        //Projectile proj = Main.projectile[p];
+
+                        //proj.FargoSouls().DamageCap = (int)MathHelper.Max(proj.FargoSouls().DamageCap, damage);
+                        //proj.noDropItem = true;
+
+                        return;
+                        /*
+                        int shoot = item2.shoot;
+                        if (shoot == 10) //purification powder
+                        {
+                            float speed;
+                            int damage;
+                            float kb;
+                            int usedAmmo;
+
+                            ItemLoader.ModifyShootStats(item2, player, ref pos, ref velocity, ref shoot, ref damage, ref item2.knockBack);
+                        }
+                        */
+                        //proj.usesLocalNPCImmunity = true;
+                        //proj.localNPCHitCooldown = 5;
+
                     }
                 }
             }

@@ -57,7 +57,7 @@ namespace FargowiltasSouls.Content.Items.Accessories.Enchantments
         public override bool ActiveSkill => Main.LocalPlayer.HasEffectEnchant<PalmwoodEffect>();
         public override void OnHitNPCEither(Player player, NPC target, NPC.HitInfo hitInfo, DamageClass damageClass, int baseDamage, Projectile projectile, Item item)
         {
-            if (player.HasEffect<TimberEffect>())
+            if (player.HasEffect<TimberEffect>() && player.HasEffect<BorealEffect>())
             {
                 if (player.Distance(target.Center) > ShadewoodEffect.Range(player, true))
                     return;

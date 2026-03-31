@@ -198,7 +198,19 @@ SoulConfig: {
 
 RespawnPreventionSetting: {
 	Tooltip: ""
-	Eternity.Label: Вечность
-	Masochist.Label: Мазохист
-	Disabled.Label: Выключено
+
+	Eternity: {
+		Label: Вечность
+		// Tooltip: ""
+	}
+
+	Masochist: {
+		Label: Мазохист
+		// Tooltip: ""
+	}
+
+	Disabled: {
+		Label: Выключено
+		// Tooltip: ""
+	}
 }

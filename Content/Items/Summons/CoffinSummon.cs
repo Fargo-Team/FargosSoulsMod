@@ -62,7 +62,7 @@ namespace FargowiltasSouls.Content.Items.Summons
         {
             if (!NPC.AnyNPCs(NPCType<CursedCoffinInactive>())) // no dormant coffin, just summon the boss
             {
-                Vector2 coffinArenaCenter = CoffinArena.Center.ToWorldCoordinates();
+                Vector2 coffinArenaCenter = CoffinArena.FightCenter;
                 SoundEngine.PlaySound(CursedCoffin.ShotSFX with { Pitch = -0.75f }, coffinArenaCenter);
                 int n = NPC.NewNPC(player.GetSource_ItemUse(Item), (int)coffinArenaCenter.X, (int)coffinArenaCenter.Y, ModContent.NPCType<CursedCoffin>());
                 if (n.IsWithinBounds(Main.maxNPCs))

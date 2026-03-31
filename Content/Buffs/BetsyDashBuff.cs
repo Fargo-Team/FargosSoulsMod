@@ -17,6 +17,7 @@ namespace FargowiltasSouls.Content.Buffs
 
         public override void Update(Player player, ref int buffIndex)
         {
+            player.FargoSouls().SpecialDash = true;
             /*player.controlLeft = false;
             player.controlRight = false;*/
             player.controlJump = false;

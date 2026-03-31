@@ -12,11 +12,7 @@ SpecialDashEffect: {
 
 BetsyDashEffect: {
 	// DisplayName: Fireball Dash
-	/* Tooltip:
-		'''
-		Perform a short invincible fireball dash towards your cursor
-		Shares cooldown slot with Bee Dash
-		''' */
+	// Tooltip: Perform a short invincible fireball dash towards your cursor
 }
 
 DiveEffect: {

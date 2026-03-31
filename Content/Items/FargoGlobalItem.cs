@@ -565,11 +565,15 @@ namespace FargowiltasSouls.Content.Items
                     }
                 }
             }
-            /*if (Array.IndexOf(Summon, item.type) > -1)
+            
+            if (FargoSoulsUtil.AprilFools)
             {
-                TooltipLine helperLine = new TooltipLine(mod, "help", "Right click to convert");
-                tooltips.Add(helperLine);
-            }*/
+                foreach (var tooltip in tooltips)
+                {
+                    tooltip.Text = tooltip.Text.Replace("Enchantment", "Enhancement");
+                    tooltip.Text = tooltip.Text.Replace("Mutant", "Fargo");
+                }
+            }
         }
 
         static int infiniteLoopHackFix;

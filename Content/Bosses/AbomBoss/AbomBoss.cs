@@ -114,17 +114,12 @@ namespace FargowiltasSouls.Content.Bosses.AbomBoss
             bool foundMod = ModLoader.TryGetMod("FargowiltasMusic", out Mod musicMod);
             if (foundMod)
             {
-                if (FargoSoulsUtil.AprilFools && musicMod.Version >= Version.Parse("0.1.5.1"))
-                    Music = MusicLoader.GetMusicSlot(musicMod, "Assets/Music/TomMorello");
-                else if (musicMod.Version >= Version.Parse("0.1.5"))
+                if (musicMod.Version >= Version.Parse("0.1.5"))
                     Music = MusicLoader.GetMusicSlot(musicMod, "Assets/Music/Laevateinn_P1");
                 else
                     Music = MusicLoader.GetMusicSlot(musicMod, "Assets/Music/Stigma");
             }
             SceneEffectPriority = SceneEffectPriority.BossMedium;
-
-            if (FargoSoulsUtil.AprilFools)
-                NPC.GivenName = Language.GetTextValue("Mods.FargowiltasSouls.NPCs.AbomBoss_April.DisplayName");
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)
@@ -286,9 +281,7 @@ namespace FargowiltasSouls.Content.Bosses.AbomBoss
                 bool foundMod = ModLoader.TryGetMod("FargowiltasMusic", out Mod musicMod);
                 if (foundMod)
                 {
-                    if (FargoSoulsUtil.AprilFools && musicMod.Version >= Version.Parse("0.1.5.1"))
-                        Music = MusicLoader.GetMusicSlot(musicMod, "Assets/Music/Gigachad");
-                    else if (musicMod.Version >= Version.Parse("0.1.5"))
+                    if (musicMod.Version >= Version.Parse("0.1.5"))
                         Music = MusicLoader.GetMusicSlot(musicMod, "Assets/Music/Laevateinn_P2");
                     else
                         Music = MusicLoader.GetMusicSlot(musicMod, "Assets/Music/Stigma");

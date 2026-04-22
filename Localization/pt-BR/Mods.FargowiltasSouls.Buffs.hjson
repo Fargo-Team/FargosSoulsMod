@@ -1,11 +1,11 @@
 TrojanSquirrelMountBuff: {
 	DisplayName: Esquilo de Tróia
-	Description: Você está pilotando um esquilo mecha
+	Description: Você está pilotando um esquilo mecânico
 }
 
 AccursedSarcophagusBuff: {
 	DisplayName: Sarcófago Amaldiçoado
-	Description: Ele vai tirar as mão
+	Description: Ele vai arrancar as mãos
 }
 
 BabyAbomBuff: {
@@ -85,7 +85,7 @@ ChibiiRemiiBuff: {
 
 PrimeMinionBuff: {
 	DisplayName: Prime Mini
-	Description: O Skeletron Prime irá lutar por você
+	Description: O Esqueletron Alfa irá lutar por você
 }
 
 FishMinionBuff: {
@@ -154,7 +154,7 @@ MutantPresenceBuff: {
 }
 
 HellFireBuff: {
-	DisplayName: Hell Fire
+	DisplayName: Fogo do Inferno
 	Description: Mods.FargowiltasSouls.BuffDescription.HellFireBuff
 }
 
@@ -214,7 +214,7 @@ ClippedWingsBuff: {
 }
 
 CrippledBuff: {
-	DisplayName: aleijado
+	DisplayName: Aleijado
 	Description: Você não pode correr
 }
 
@@ -391,7 +391,7 @@ OiledBuff: {
 }
 
 PungentGazeBuff: {
-	DisplayName: Pungent Gaze
+	DisplayName: Olhar Pungento
 	Description: Mods.FargowiltasSouls.BuffDescription.PungentGazeBuff
 }
 
@@ -527,8 +527,8 @@ SaucerMinionBuff: {
 }
 
 SkeletronArmsBuff: {
-	DisplayName: Braços do Skeletron
-	Description: Os braços do Skeletron irão te proteger
+	DisplayName: Braços do Esqueletron 
+	Description: Os braços do Esqueletron irão te proteger
 }
 
 SouloftheMasochistBuff: {
@@ -582,7 +582,7 @@ FrozenBuff: {
 }
 
 GoldenStasisBuff: {
-	DisplayName: Estase Dourado
+	DisplayName: Estase Dourada
 	Description: Você está imune a todos os danos, mas não pode se mover
 }
 
@@ -597,7 +597,7 @@ HallowCooldownBuff: {
 }
 
 HuntressBleedBuff: {
-	DisplayName: Huntress Bleed
+	DisplayName: Sangramento da Caçadora 
 	Description: Mods.FargowiltasSouls.BuffDescription.HuntressBleedBuff
 }
 
@@ -607,17 +607,17 @@ HuntressCDBuff: {
 }
 
 LeadPoisonBuff: {
-	DisplayName: Lead Poison
+	DisplayName: Envenenamento por Chumbo
 	Description: Mods.FargowiltasSouls.BuffDescription.LeadPoisonBuff
 }
 
 MoltenAmplifyBuff: {
-	DisplayName: Molten Amplify
+	DisplayName: Amplificação Derretida
 	Description: Mods.FargowiltasSouls.BuffDescription.MoltenAmplifyBuff
 }
 
 OriPoisonBuff: {
-	DisplayName: Orichalchum Poison
+	DisplayName: Envenenamento por Oricalco 
 	Description: Mods.FargowiltasSouls.BuffDescription.OriPoisonBuff
 }
 
@@ -632,12 +632,12 @@ SnowstormCDBuff: {
 }
 
 SolarFlareBuff: {
-	DisplayName: Solar Flare
+	DisplayName: Raio Solar
 	Description: Mods.FargowiltasSouls.BuffDescription.SolarFlareBuff
 }
 
 SuperBleedBuff: {
-	DisplayName: Blood Geiser
+	DisplayName: Gêiser Sangrento
 	Description: Mods.FargowiltasSouls.BuffDescription.SuperBleedBuff
 }
 
@@ -698,7 +698,7 @@ CorruptedBuff: {
 
 CorruptedBuffForce: {
 	DisplayName: Apodrecido (Força)
-	Description: Você tem Apodrecido
+	Description: Você Apodreceu
 }
 
 JungleMimicSummonBuff: {
@@ -730,21 +730,21 @@ RainCDBuff: {
 
 SublimationBuff: {
 	Description: Mods.FargowiltasSouls.Buffs.SublimationBuff.Description
-	DisplayName: Sublimation Buff
+	DisplayName: Buff de Sublimação 
 }
 
 CoffinTossBuff: {
-	DisplayName: Coffin Toss Buff
+	DisplayName: Buff de Arremesamento do Caixão 
 	Description: ""
 }
 
 HellFireMarkedBuff: {
-	DisplayName: Hell Fire Marked
+	DisplayName: Marcado para Fogo do Inferno
 	Description: Mods.FargowiltasSouls.Buffs.HellFireMarked.Description
 }
 
 MagicalCurseBuff: {
-	DisplayName: Magical Curse Buff
+	DisplayName: Buff de Maldição Mágica 
 	Description: Mods.FargowiltasSouls.Buffs.MagicalCurseBuff.Description
 }
 
@@ -754,27 +754,27 @@ MoonFangBuff: {
 }
 
 WitheredForceBuff: {
-	DisplayName: Withered Force Buff
+	DisplayName: Buff de Força Apodrecida 
 	Description: Mods.FargowiltasSouls.Buffs.WitheredForceBuff.Description
 }
 
 TimberBleedBuff: {
-	DisplayName: Timber Bleed Buff
+	DisplayName: Buff de Sangramento da Madeira
 	Description: Mods.FargowiltasSouls.Buffs.TimberBleedBuff.Description
 }
 
 EarthPoison: {
-	DisplayName: Earth Poison
+	DisplayName: Envenenamento da Terra
 	Description: Mods.FargowiltasSouls.Buffs.EarthPoison.Description
 }
 
 WitheredBuff: {
-	DisplayName: Withered Buff
+	DisplayName: Buff de Apodrecimento
 	Description: Mods.FargowiltasSouls.Buffs.WitheredBuff.Description
 }
 
 WitheredWizardBuff: {
-	DisplayName: Withered Wizard Buff
+	DisplayName: Buff de Apodrecimento do Mago
 	Description: Mods.FargowiltasSouls.Buffs.WitheredWizardBuff.Description
 }
 
@@ -819,6 +819,6 @@ TouhouHoardBuff: {
 }
 
 GrabbedHarmlessBuff: {
-	// DisplayName: Grabbed
-	// Description: Mash movement keys to escape!
+	// DisplayName: Agarrado
+	// Description: Aperte os botões de movimento para escapar!
 }
